@@ -33,6 +33,51 @@ df.value_counts()
 sns.heatmap(df.isnull())
 
 
+# In[37]:
+
+
+sns.countplot(x='Outcome',data=df)
+
+
+# In[36]:
+
+
+plt.figure(figsize=(20,10))
+b0 =  df['BMI'][(df['BMI'] < 16)]
+b1 =  df['BMI'][(df['BMI'] > 16) & (df["BMI"] <= 20)]
+b2 =  df['BMI'][(df['BMI'] > 21) & (df["BMI"] <= 25)]
+b3 =  df['BMI'][(df['BMI'] > 26) & (df["BMI"] <= 30)]
+b4 =  df['BMI'][(df['BMI'] > 31) & (df["BMI"] <= 36)]
+b5 =  df['BMI'][(df['BMI'] > 36)]
+ssx = [ "Skinny", "Under Weight", "Fit","Ower weight","Obese","Morbid Obese"]
+ssy = [len(b0.values), len(b1.values), len(b2.values), len(b3.values), len(b4.values), len(b5.values)]
+plt.title ("No of people in each weight category")
+sns.barplot(x=ssx, y=ssy, palette="Set2")
+
+plt.xlabel("Weight category")
+plt.ylabel("No of people")
+plt.show()
+
+
+# In[44]:
+
+
+r1=df[df.Outcome==1]
+r1['Age'].plot.hist(bins=10,figsize=(10,5),edgecolor='white')
+
+
+# In[45]:
+
+
+r1.head()
+
+
+# In[ ]:
+
+
+
+
+
 # In[5]:
 
 
